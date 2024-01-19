@@ -1,0 +1,40 @@
+@use '../../styles/common.scss' as common;
+@use '../../styles/utils/mixin.scss' as mixin;
+
+.container_footer {
+    margin: 30px 6vw;
+
+    &_list {
+        list-style: none;
+        display: flex;
+        justify-content: start;
+
+        &_item {
+            margin-right: 20px;
+
+            @include mixin.responsive(640px) {
+                margin-bottom: 20px;
+            }
+        }
+
+        @include mixin.responsive(640px) {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+
+    @include mixin.responsive(1024px) {
+        margin: 30px 70px;
+    }
+
+    @include mixin.responsive(440px) {
+        margin: 30px 50px;
+    }
+}
+
+.container_footer_list_item {
+    a {
+        color: common.$colorTextBlack;
+        text-decoration: none;
+    }
+}

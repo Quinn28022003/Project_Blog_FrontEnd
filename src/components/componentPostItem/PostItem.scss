@@ -1,0 +1,95 @@
+@use '../../styles/common.scss' as common;
+@use '../../styles/utils/mixin' as mixin;
+
+.post_item {
+    height: auto;
+    cursor: pointer;
+
+    &_image {
+        width: 320px;
+        height: 200px;
+        margin-bottom: 20px;
+        object-fit: cover;
+    }
+
+    &_content {
+
+        &_authorAndDate {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 20px;
+            color: common.$colorTextPurple;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            max-width: 85%;
+            display: block;
+        }
+
+        &_title {
+            color: common.$colorTextBlack;
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 32px;
+            margin: 12px 0px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            display: inline-block;
+            max-width: 80%;
+        }
+
+        &_imgArrow {
+            margin: 12px 0px;
+            width: 24px;
+            height: 29px;
+            margin-left: 20px;
+        }
+
+        &_description {
+            color: common.$colorTextGray;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            margin-bottom: 14px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            max-width: 85%;
+            max-height: 72px;
+            /* Adjust the height as needed */
+        }
+
+        &_topic {
+            overflow: auto;
+            white-space: nowrap;
+            max-width: 85%;
+            padding: 10px 0px;
+            scrollbar-width: thin;
+            scrollbar-color: #333 #f5f5f5;
+            display: flex;
+
+            &::-webkit-scrollbar {
+                width: 20px;
+                height: 6px;
+                border-radius: 20px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: #cacaca;
+                border-radius: 20px;
+            }
+
+            &::-webkit-scrollbar-track {
+                background-color: #f5f5f5;
+                border-radius: 20px;
+            }
+        }
+    }
+
+    @include mixin.responsive(868px) {
+        height: auto;
+    }
+}

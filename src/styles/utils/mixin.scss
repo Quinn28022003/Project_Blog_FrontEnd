@@ -1,0 +1,10 @@
+@mixin area($row-start, $row-end, $col-start, $col-end) {
+    grid-row: #{$row-start} / #{$row-end};
+    grid-column: #{$col-start} / #{$col-end};
+}
+
+@mixin responsive($width) {
+    @media screen and (max-width: $width) {
+        @content;
+    }
+}

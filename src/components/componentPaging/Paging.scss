@@ -1,0 +1,70 @@
+@use '../../styles/common.scss' as common;
+@use '../../styles/utils/mixin.scss' as mixin;
+
+.container_paging {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0px;
+    text-align: center;
+
+    &_previous,
+    &_next {
+        color: common.$colorTextGray;
+        cursor: pointer;
+
+        @include mixin.responsive(640px) {
+            margin: 30px 0px;
+        }
+    }
+
+    &_previous {
+        i {
+            margin-right: 12px;
+        }
+    }
+
+    &_content_list {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &_item {
+            padding: 12px;
+            width: 40px;
+            border-radius: 8px;
+            color: common.$colorTextGray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &.active {
+                background-color: common.$colorBgLightPurple;
+                color: common.$colorTextPurple;
+            }
+
+            &:hover {
+                background-color: common.$colorBgLightPurple;
+                color: common.$colorTextPurple;
+                cursor: pointer;
+            }
+
+            &_notHover {
+                background-color: transparent;
+                color: common.$colorTextGray;
+                cursor: inherit;
+            }
+        }
+    }
+
+    &_next {
+        i {
+            margin-left: 12px;
+        }
+    }
+
+    @include mixin.responsive(640px) {
+        margin: 50px 0px;
+    }
+}

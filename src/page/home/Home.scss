@@ -1,0 +1,13 @@
+@use '../../styles/utils/mixin' as mixin;
+
+#main {
+    margin: 0 6vw;
+
+    @include mixin.responsive(1024px) {
+        margin: 0 70px;
+    }
+
+    @include mixin.responsive(440px) {
+        margin: 0 50px;
+    }
+}
