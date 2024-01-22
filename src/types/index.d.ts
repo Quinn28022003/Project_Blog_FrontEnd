@@ -18,13 +18,12 @@ declare module '*.png' {
     export default pngPath;
 };
 
-
 interface IArticle {
-    id: number
-    title: string
-    body: string
-}
+    id: number;
+    title: string;
+    body: string;
+};
 
 type ArticleState = {
-    articles: IArticle[]
-}
+    articles: IArticle[];
+};

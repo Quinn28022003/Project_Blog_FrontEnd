@@ -1,8 +1,18 @@
-@forward '../../styles/common.scss';
 @use '../../styles/utils/mixin' as mixin;
+@use '../../styles/common.scss' as common;
 
 .container_title {
     padding: 30px 0px;
+
+    &.chageDark {
+        color: common.$colorThemeWhite;
+        background-color: common.$colorThemeDarkBackGreen;
+    }
+
+    &.chageBright {
+        color: common.$colorThemeDarkBackGreen;
+        background-color: common.$colorThemeWhite;
+    }
 
     h2 {
         text-align: center;

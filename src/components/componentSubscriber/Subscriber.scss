@@ -1,0 +1,120 @@
+@use '../../styles/utils/mixin' as mixin;
+@use '../../styles/common.scss' as common;
+
+.subscriber {
+    text-align: center;
+
+    &_titleOne {
+        color: #7F56D9;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 24px;
+        padding: 20px 0px;
+
+
+    }
+
+    &_titleTwo {
+        color: #000;
+        font-size: 48px;
+        font-weight: 600;
+        line-height: 60px;
+        letter-spacing: -0.96px;
+        margin: 10px 0px;
+
+        &.chageColorDark {
+            color: common.$colorThemeWhite;
+        }
+
+        &.chageColorbright {
+            color: common.$colorThemeDarkBackGreen;
+        }
+
+        @include mixin.responsive(600px) {
+            font-size: 30px;
+        }
+    }
+
+    &_text {
+        color: #000;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 30px;
+        margin: 30px 0px;
+
+        &.chageColorDark {
+            color: common.$colorThemeWhite;
+        }
+
+        &.chageColorbright {
+            color: common.$colorThemeDarkBackGreen;
+        }
+    }
+
+    &_form {
+        &_inputEmail {
+            border-radius: 8px;
+            border: 1px solid #D0D5DD;
+            background-color: #FFF;
+            box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+            padding: 12px;
+            font-size: 20px;
+            align-items: center;
+            gap: 8px;
+            align-self: stretch;
+            margin-right: 20px;
+        }
+
+        &_btn {
+            padding: 12px 20px;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            border-radius: 8px;
+            border: 1px solid #7F56D9;
+            background-color: #7F56D9;
+            box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+            color: #FFF;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 24px;
+            cursor: pointer;
+
+            @include mixin.responsive(500px) {
+                margin-top: 20px;
+            }
+        }
+
+        &_text {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+            margin: 20px 0px;
+
+            &.chageColorDark {
+                color: common.$colorThemeWhite;
+            }
+
+            &.chageColorbright {
+                color: common.$colorThemeDarkBackGreen;
+            }
+
+            a {
+                color: inherit;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 20px;
+                text-decoration-line: underline;
+            }
+
+            &.chageColorDark {
+                color: common.$colorThemeWhite;
+            }
+
+            &.chageColorbright {
+                color: common.$colorThemeDarkBackGreen;
+            }
+        }
+    }
+}

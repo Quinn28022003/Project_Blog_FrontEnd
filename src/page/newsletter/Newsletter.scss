@@ -1,0 +1,26 @@
+@use '../../styles/utils/mixin' as mixin;
+@use '../../styles/common.scss' as common;
+
+.newsletter {
+    padding: 0 6vw;
+
+    &.chageBgColorDark {
+        background-color: common.$colorThemeDarkBackGreen;
+    }
+
+    &.chageBgColorbright {
+        background-color: common.$colorThemeWhite;
+    }
+
+    @include mixin.responsive(1400px) {
+        padding: 0 4vw;
+    }
+
+    @include mixin.responsive(1024px) {
+        padding: 0 50px;
+    }
+
+    @include mixin.responsive(440px) {
+        padding: 0 30px;
+    }
+}

@@ -6,10 +6,93 @@
     cursor: pointer;
 
     &_image {
-        width: 320px;
-        height: 200px;
-        margin-bottom: 20px;
-        object-fit: cover;
+
+        &-recentPostItem1,
+        &-recentPostItem2,
+        &-recentPostItem3,
+        &-recentPostItem4,
+        &-projectPostItem2,
+        &-projectPostItem3,
+        &-projectPostItem5,
+        &-projectPostItem6 {
+            height: 300px;
+        }
+
+        &-recentPostItem1,
+        &-recentPostItem2,
+        &-recentPostItem3,
+        &-recentPostItem4,
+        &-projectPostItem1,
+        &-projectPostItem2,
+        &-projectPostItem3,
+        &-projectPostItem4,
+        &-projectPostItem5,
+        &-projectPostItem6,
+        &-AllRecentBlogPosts {
+            object-fit: cover;
+            box-shadow: 2px 3px 15px rgba($color: #000000, $alpha: .1);
+        }
+
+        &-recentPostItem1,
+        &-allBlogPostItem,
+        &-projectPostItem1,
+        &-projectPostItem2,
+        &-projectPostItem3,
+        &-projectPostItem4,
+        &-projectPostItem5,
+        &-projectPostItem6 {
+            width: 100%;
+        }
+
+        // &-recentPostItem1 {}
+
+        &-recentPostItem2 {
+            width: 50%;
+
+            @include mixin.responsive(686px) {
+                width: 100%;
+            }
+        }
+
+        &-recentPostItem3 {
+            width: 50%;
+
+            @include mixin.responsive(686px) {
+                width: 100%;
+            }
+        }
+
+        &-recentPostItem4 {
+            width: 50%;
+
+            @include mixin.responsive(1280px) {
+                width: 100%;
+            }
+        }
+
+        &-projectPostItem1 {
+            height: 400px;
+
+            @include mixin.responsive(1280px) {
+                height: 300px;
+            }
+        }
+
+        // &-projectPostItem2 {}
+
+        // &-projectPostItem3 {}
+
+        &-projectPostItem4 {
+            height: 400px;
+        }
+
+        // &-projectPostItem5 {}
+
+        // &-projectPostItem6 {}
+
+        &-AllRecentBlogPosts {
+            width: 100%;
+        }
     }
 
     &_content {
@@ -37,6 +120,22 @@
             text-overflow: ellipsis;
             display: inline-block;
             max-width: 80%;
+
+            &.chageColorDark {
+                color: common.$colorThemeDarkBackGreen;
+            }
+
+            &.chageColorbright {
+                color: common.$colorThemeWhite;
+            }
+
+            &:hover {
+                text-decoration: underline;
+            }
+
+            @include mixin.responsive(686px) {
+                width: 100%;
+            }
         }
 
         &_imgArrow {
@@ -59,7 +158,18 @@
             -webkit-box-orient: vertical;
             max-width: 85%;
             max-height: 72px;
-            /* Adjust the height as needed */
+
+            &.chageColorDark {
+                color: common.$colorTextGray;
+            }
+
+            &.chageColorbright {
+                color: common.$colorThemeTextLightGray;
+            }
+
+            @include mixin.responsive(686px) {
+                width: 100%;
+            }
         }
 
         &_topic {
@@ -87,9 +197,204 @@
                 border-radius: 20px;
             }
         }
+
+        &-recentPostItem1,
+        &-allBlogPostItem,
+        &-projectPostItem1,
+        &-projectPostItem1,
+        &-projectPostItem2,
+        &-projectPostItem3,
+        &-projectPostItem4,
+        &-projectPostItem5,
+        &-projectPostItem6,
+        &-AllRecentBlogPosts {
+            width: 100%;
+        }
+
+        &-recentPostItem1,
+        &-recentPostItem2,
+        &-recentPostItem3,
+        &-recentPostItem4,
+        &-allBlogPostItem,
+        &-projectPostItem1,
+        &-projectPostItem2,
+        &-projectPostItem3,
+        &-projectPostItem4,
+        &-projectPostItem5,
+        &-projectPostItem6,
+        &-AllRecentBlogPosts {
+            padding: 30px;
+        }
+
+        // &-recentPostItem1 {}
+
+        &-recentPostItem2 {
+            width: 50%;
+
+            @include mixin.responsive(686px) {
+                width: 100%;
+            }
+
+        }
+
+        &-recentPostItem3 {
+            width: 50%;
+
+            @include mixin.responsive(686px) {
+                width: 100%;
+            }
+        }
+
+        &-recentPostItem4 {
+            width: 50%;
+
+            @include mixin.responsive(1280px) {
+                width: 100%;
+            }
+        }
+
+        &-allBlogPostItem {}
+
+        // &-projectPostItem1 {
+
+        // }
+
+        // &-projectPostItem2 {}
+
+        // &-projectPostItem3 {}
+
+        // &-projectPostItem4 {}
+
+        // &-projectPostItem5 {}
+
+        // &-projectPostItem6 {}
+
+        // &-AllRecentBlogPosts {}
+    }
+
+    &-recentPostItem1,
+    &-recentPostItem2,
+    &-recentPostItem3,
+    &-recentPostItem4,
+    &-allBlogPostItem,
+    &-projectPostItem1,
+    &-projectPostItem2,
+    &-projectPostItem3,
+    &-projectPostItem4,
+    &-projectPostItem5,
+    &-projectPostItem6,
+    &-AllRecentBlogPosts {
+        box-shadow: 2px 3px 15px rgba($color: #000000, $alpha: .1);
+    }
+
+    &-recentPostItem1 {
+        @include mixin.area(1, 3, 1, 2, block);
+
+        @include mixin.responsive(1400px) {
+            gap: 30px;
+        }
+
+        @include mixin.responsive(1280px) {
+            @include mixin.area(1, 2, 1, 3, block);
+        }
+    }
+
+    &-recentPostItem2 {
+        @include mixin.area(1, 2, 2, 3, flex);
+
+        @include mixin.responsive(1280px) {
+            @include mixin.area(2, 3, 1, 3, flex);
+        }
+
+        @include mixin.responsive(686px) {
+            @include mixin.area(2, 3, 1, 3, block);
+
+        }
+    }
+
+    &-recentPostItem3 {
+        @include mixin.area(2, 3, 2, 3, flex);
+
+        @include mixin.responsive(1280px) {
+            @include mixin.area(3, 4, 1, 3, flex);
+        }
+
+        @include mixin.responsive(686px) {
+            @include mixin.area(3, 4, 1, 3, block);
+        }
+    }
+
+    &-recentPostItem4 {
+        @include mixin.area(3, 4, 1, 3, flex);
+
+        @include mixin.responsive(1280px) {
+            @include mixin.area(4, 5, 1, 3, block);
+        }
     }
 
     @include mixin.responsive(868px) {
         height: auto;
+    }
+
+    &-allBlogPostItem {
+        width: 30%;
+        display: block;
+
+        @include mixin.responsive(1024px) {
+            width: 48%;
+        }
+
+        @include mixin.responsive(686px) {
+            width: 100%;
+        }
+    }
+
+    &-projectPostItem1 {
+        @include mixin.area(1, 2, 1, 3, block);
+
+    }
+
+    &-projectPostItem2 {
+        @include mixin.area(2, 3, 1, 2, block);
+
+        @include mixin.responsive(950px) {
+            @include mixin.area(2, 3, 1, 3, block);
+        }
+    }
+
+    &-projectPostItem3 {
+        @include mixin.area(2, 3, 2, 3, block);
+
+        @include mixin.responsive(950px) {
+            @include mixin.area(3, 4, 1, 3, block);
+        }
+    }
+
+    &-projectPostItem4 {
+        @include mixin.area(3, 4, 1, 3, block);
+
+        @include mixin.responsive(868px) {
+            @include mixin.area(4, 5, 1, 3, block);
+        }
+    }
+
+    &-projectPostItem5 {
+        @include mixin.area(4, 5, 1, 2, block);
+
+        @include mixin.responsive(950px) {
+            @include mixin.area(5, 6, 1, 3, block);
+        }
+    }
+
+    &-projectPostItem6 {
+        @include mixin.area(4, 5, 2, 3, block);
+
+        @include mixin.responsive(950px) {
+            @include mixin.area(6, 7, 1, 3, block);
+        }
+    }
+
+    &-AllRecentBlogPosts {
+        width: 100%;
     }
 }

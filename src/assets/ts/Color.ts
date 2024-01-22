@@ -10,7 +10,6 @@ type TColorBackgroud = {
 };
 
 type TColorText = {
-    $colorTextBlack: string;
     $colorTextPurple: string;
     $colorTextBlue: string;
     $colorTextDarkPink: string;
@@ -19,6 +18,11 @@ type TColorText = {
     $colorTextRed: string;
     $colorTextDarkBlue001: string;
     $colortextDarkOrange: string;
+};
+
+type TColorTheme = {
+    $colorThemeDarkBackGreen: string;
+    $colorThemeWhite: string;
 };
 
 export const TColorBackgroud: TColorBackgroud = {
@@ -33,7 +37,6 @@ export const TColorBackgroud: TColorBackgroud = {
 };
 
 export const TColorText: TColorText = {
-    $colorTextBlack: '#1A1A1A',
     $colorTextPurple: '#6941C6',
     $colorTextBlue: '#3538CD',
     $colorTextDarkPink: '#C11574',
@@ -42,4 +45,9 @@ export const TColorText: TColorText = {
     $colorTextRed: '#C01048',
     $colorTextDarkBlue001: '#363F72',
     $colortextDarkOrange: '#C4320A',
+};
+
+export const TColorTheme: TColorTheme = {
+    $colorThemeDarkBackGreen: '#090D1F',
+    $colorThemeWhite: '#FFF'
 };

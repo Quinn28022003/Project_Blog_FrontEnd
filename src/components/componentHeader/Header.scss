@@ -1,14 +1,31 @@
 @use '../../styles/utils/mixin' as mixin;
+@use '../../styles/common.scss' as common;
 
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 30px 6vw;
+    padding: 30px 6vw;
+
+    &.chageColorDark {
+        background-color: common.$colorThemeWhite ;
+    }
+
+    &.chageColorbright {
+        background-color: common.$colorThemeDarkBackGreen ;
+    }
 
     &_logo {
         font-size: 40px;
         font-weight: bold;
+
+        &.chageColorDark {
+            color: common.$colorThemeWhite;
+        }
+
+        &.chageColorbright {
+            color: common.$colorThemeDarkBackGreen;
+        }
     }
 
     &_navbar {
@@ -52,6 +69,15 @@
         font-size: 44px;
         background-color: transparent;
         display: none;
+        color: common.$colorThemeDarkBackGreen;
+
+        &.chageColorDark {
+            color: common.$colorThemeDarkBackGreen ;
+        }
+
+        &.chageColorbright {
+            color: common.$colorThemeWhite ;
+        }
 
         @include mixin.responsive(1024px) {
             display: block;
@@ -59,11 +85,11 @@
     }
 
     @include mixin.responsive(1024px) {
-        margin: 30px 70px;
+        padding: 30px 70px;
     }
 
     @include mixin.responsive(440px) {
-        margin: 30px 50px;
+        padding: 30px 50px;
     }
 }
 
@@ -74,6 +100,14 @@
         padding: 6px 0px;
         transition: all .5s;
         cursor: pointer;
+
+        &.chageColorDark {
+            color: common.$colorThemeDarkBackGreen ;
+        }
+
+        &.chageColorbright {
+            color: common.$colorThemeWhite ;
+        }
 
         &.hover {
             position: relative;
@@ -86,7 +120,32 @@
                 left: 50%;
                 width: 0;
                 height: 2px;
-                background-color: black;
+                background-color: common.$colorThemeDarkBackGreen;
+                transition: width 0.5s ease, left 0.5s ease;
+
+                @include mixin.responsive(1024px) {
+                    background-color: white;
+                }
+            }
+
+            &:hover:before {
+                width: 100%;
+                left: 0;
+            }
+        }
+
+        &.hover-theme {
+            position: relative;
+            transition: color 0.5s;
+
+            &:before {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                width: 0;
+                height: 2px;
+                background-color: common.$colorThemeWhite;
                 transition: width 0.5s ease, left 0.5s ease;
 
                 @include mixin.responsive(1024px) {
@@ -111,12 +170,24 @@
                 width: 100%;
                 left: 0;
                 height: 2px;
-                background-color: black;
                 transition: width 0.5s ease;
+                background-color: common.$colorThemeDarkBackGreen;
+            }
+        }
 
-                @include mixin.responsive(1024px) {
-                    background-color: white;
-                }
+        &.active-theme {
+            position: relative;
+            transition: color 0.5s;
+
+            &:before {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                left: 0;
+                height: 2px;
+                background-color: common.$colorThemeWhite;
+                transition: width 0.5s ease;
             }
         }
 
@@ -138,6 +209,14 @@
             border-radius: 20px;
             width: 100px;
             justify-content: center;
+
+            &.chageBgColorDark {
+                background-color: common.$colorThemeDarkBackGreen;
+            }
+
+            &.chageBgColorbright {
+                background-color: common.$colorThemeWhite;
+            }
 
             @include mixin.responsive(1024px) {
                 background-color: white;
@@ -175,10 +254,18 @@
         @include mixin.responsive(1024px) {
             color: black;
         }
+
+        &.chageColorDark {
+            color: common.$colorThemeWhite;
+        }
+
+        &.chageColorbright {
+            color: common.$colorThemeDarkBackGreen ;
+        }
     }
 
     &_iconShapeCircle {
-        background-color: white;
+        background-color: common.$colorThemeWhite;
         margin: 0 10px;
         border-radius: 50%;
         width: 20px;
@@ -186,6 +273,14 @@
 
         @include mixin.responsive(1024px) {
             background-color: black;
+        }
+
+        &.chageBgColorDark {
+            background-color: common.$colorThemeWhite;
+        }
+
+        &.chageBgColorbright {
+            background-color: common.$colorThemeDarkBackGreen;
         }
     }
 }

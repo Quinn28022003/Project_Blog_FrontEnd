@@ -1,19 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './PostItem.scss';
 import imgArrow from '../../assets/image/arrow-up-right.svg';
 import Button from '../componentButton/Button';
 import { TColorBackgroud, TColorText } from '../../assets/ts/Color';
 import getTopicPosts from '../../axios/getTopicPosts';
-import imgTest from '../../assets/image/post1.png';
+import { Link, useNavigate } from 'react-router-dom';
+import { scrollToTop } from '../../utils/animationscrollToTop';
+import { TContextApp, contextApp } from '../../App';
 
 type TPostItemProps = {
-    element?: any;
-    display: string;
-    widthItem?: string;
-    widthImg?: string;
-    widthContent?: string;
-    p?: string;
-    STT?: string;
+    RecentBlogPosts?: boolean;
+    AllBlogPosts?: boolean;
+    AllRecentBlogPosts?: boolean;
+    ProjectPosts?: boolean;
+    element: any;
+    itemIndex: number;
 };
 
 const initGetTopicPosts = async (idPost: number): Promise<any> => {
@@ -23,57 +24,147 @@ const initGetTopicPosts = async (idPost: number): Promise<any> => {
     } catch (error) {
         console.error('Error fetching topic posts:', error);
         return null;
-    }
+    };
 };
 
-
-
-const PostItem: React.FC<TPostItemProps> = ({ element, display = '', widthItem = '', widthImg = '', widthContent = '', p = '', STT = '' }: TPostItemProps) => {
+const PostItem: React.FC<TPostItemProps> = ({ RecentBlogPosts, AllBlogPosts, AllRecentBlogPosts, ProjectPosts, element, itemIndex }: TPostItemProps) => {
     const [dataTopicPost, setDataTopicPost] = useState<string[]>([]);
     const [containerColorBg, setContainerColorbg] = useState<string[]>(Object.values(TColorBackgroud));
     const [containerColorText, setContainerColorText] = useState<string[]>(Object.values(TColorText));
-    const [countBg, setCountBg] = useState<number>(Math.floor(Math.random() * containerColorBg.length));
-    const [countText, setCountText] = useState<number>(Math.floor(Math.random() * containerColorText.length));
+    const [count, setCountBg] = useState<number>(Math.floor(Math.random() * containerColorBg.length));
+    const [image, setImage] = useState<string>(`data:image/png;base64,${element.image}`);
+    const navigate = useNavigate();
+    const dataContextApp: TContextApp = useContext(contextApp);
+    const isCheckTheme = dataContextApp.isCheckTheme;
+
+    const handleLinkClick = () => {
+        navigate(`/detailPosts/${element.idPost}`);
+        scrollToTop();
+    };
+
+    const isCheckChangePostItem = (data: string[]): string => {
+        switch (itemIndex) {
+            case 1:
+                return data[itemIndex - 1];
+            case 2:
+                return data[itemIndex - 1];
+            case 3:
+                return data[itemIndex - 1];
+            case 4:
+                return data[itemIndex - 1];
+            case 5:
+                return data[itemIndex - 1];
+            case 6:
+                return data[itemIndex - 1];
+            default:
+                return '';
+        };
+    };
+    const [isCheckTypeDisplayPostItem, setIsCheckTypeDisplayPostItem] = useState<string>((): string => {
+        if (RecentBlogPosts === true) {
+            return isCheckChangePostItem([
+                `post_item-recentPostItem${itemIndex}`,
+                `post_item-recentPostItem${itemIndex}`,
+                `post_item-recentPostItem${itemIndex}`,
+                `post_item-recentPostItem${itemIndex}`
+            ]);
+        } else if (AllBlogPosts === true) {
+            return 'post_item-allBlogPostItem';
+        } else if (AllRecentBlogPosts === true) {
+            return 'post_item-AllRecentBlogPosts';
+        } else if (ProjectPosts === true) {
+            return isCheckChangePostItem([
+                `post_item-projectPostItem${itemIndex}`,
+                `post_item-projectPostItem${itemIndex}`,
+                `post_item-projectPostItem${itemIndex}`,
+                `post_item-projectPostItem${itemIndex}`,
+                `post_item-projectPostItem${itemIndex}`,
+                `post_item-projectPostItem${itemIndex}`
+            ]);
+        } else {
+            return '';
+        };
+    });
+    const [isCheckTypeDisplayPostItemImg, setIsCheckTypeDisplayPostItemImg] = useState<string>((): string => {
+        if (RecentBlogPosts === true) {
+            return isCheckChangePostItem([
+                'post_item_image-recentPostItem1',
+                'post_item_image-recentPostItem2',
+                'post_item_image-recentPostItem3',
+                'post_item_image-recentPostItem4'
+            ]);
+        } else if (AllBlogPosts === true) {
+            return 'post_item_image-allBlogPostItem';
+        } else if (AllRecentBlogPosts === true) {
+            return 'post_item_image-AllRecentBlogPosts';
+        } else if (ProjectPosts === true) {
+            return isCheckChangePostItem([
+                `post_item_image-projectPostItem${itemIndex}`,
+                `post_item_image-projectPostItem${itemIndex}`,
+                `post_item_image-projectPostItem${itemIndex}`,
+                `post_item_image-projectPostItem${itemIndex}`,
+                `post_item_image-projectPostItem${itemIndex}`,
+                `post_item_image-projectPostItem${itemIndex}`
+            ]);
+        } else {
+            return '';
+        };
+    });
+    const [isCheckTypeDisplayPostItemContent, setIsCheckTypeDisplayPostItemContet] = useState<string>((): string => {
+        if (RecentBlogPosts === true) {
+            return isCheckChangePostItem([
+                'post_item_content-recentPostItem1',
+                'post_item_content-recentPostItem2',
+                'post_item_content-recentPostItem3',
+                'post_item_content-recentPostItem4'
+            ]);
+        } else if (AllBlogPosts === true) {
+            return 'post_item_content-allBlogPostItem';
+        } else if (AllRecentBlogPosts === true) {
+            return 'post_item_content-AllRecentBlogPosts';
+        } else if (ProjectPosts === true) {
+            return isCheckChangePostItem([
+                `post_item_content-projectPostItem${itemIndex}`,
+                `post_item_content-projectPostItem${itemIndex}`,
+                `post_item_content-projectPostItem${itemIndex}`,
+                `post_item_content-projectPostItem${itemIndex}`,
+                `post_item_content-projectPostItem${itemIndex}`,
+                `post_item_content-projectPostItem${itemIndex}`
+            ]);
+        } else {
+            return '';
+        };
+    });
 
     useEffect(() => {
         const fetchData = async () => {
-            if (element && element.idPost) {
-                try {
-                    const dataTopicPost = await initGetTopicPosts(Number(element.idPost));
-                    setDataTopicPost(dataTopicPost)
-                } catch (error) {
-                    console.error('Error fetching topic posts:', error);
-                };
-            } else {
-                console.log('Error: element or element.idPost is undefined');
-            }
+            try {
+                const dataTopicPost = await initGetTopicPosts(Number(element.idPost));
+                setDataTopicPost(dataTopicPost);
+            } catch (error) {
+                console.error('Error fetching topic posts:', error);
+            };
         };
-
         fetchData();
-    }, [element]);
-
-    console.log('Image URL:', element.image);
-
-    if (!element || !element.title || !element.decscription || !element.authorName || !element.FormattedDate || !element.image) {
-
-        return null;
-    };
+    }, []);
 
     return (
-        <div className='post_item' style={{ display: `${display}`, gridArea: `${STT}`, width: `${widthItem}` }}>
-            <img src={imgTest} alt="" className='post_item_image' style={{ width: `${widthImg}` }} />
-            <div className='post_item_content' style={{ padding: `${p}`, width: `${widthContent}` }}>
+        <div className={isCheckTypeDisplayPostItem} >
+            <img src={image} srcSet={`${image} 1x, ${image} 2x`} alt="" className={isCheckTypeDisplayPostItemImg} />
+            <div className={isCheckTypeDisplayPostItemContent} >
                 <span className='post_item_content_authorAndDate'>
                     {element.authorName} • {element.FormattedDate}
                 </span>
-                <h3 className='post_item_content_title'>{element.title}  </h3><img src={imgArrow} alt="Arrow" className='post_item_content_imgArrow' />
-                <p className='post_item_content_description'>{element.decscription}</p>
+                <Link to={`/detailPosts/${element.idPost}`} style={{ textDecoration: 'none', color: 'inherit', display: 'inherit' }} onClick={handleLinkClick}>
+                    <h3 className={`post_item_content_title ${isCheckTheme === false ? 'chageColorDark' : 'chageColorbright'}`}>{element.title} </h3><img src={imgArrow} alt="Arrow" className='post_item_content_imgArrow' />
+                </Link>
+                <p className={`post_item_content_description ${isCheckTheme === false ? 'chageColorDark' : 'chageColorbright'}`}>{element.decscription}</p>
                 <div className='post_item_content_topic'>
                     {
                         dataTopicPost && dataTopicPost.length > 0 ?
                             dataTopicPost.map((item: any, index: number) => (
                                 <div key={index}>
-                                    <Button bgColor={`${containerColorBg[countBg === containerColorBg.length ? countBg - 1 : countBg]}`} color={`${countText === containerColorText.length ? countText - 1 : countText}`} text={item} />
+                                    <Button bgColor={`${containerColorBg[count === containerColorBg.length ? count - 1 : count]}`} color={`${containerColorText[count === containerColorText.length ? count - 1 : count]}`} text={item} />
                                 </div>
                             ))
                             : null

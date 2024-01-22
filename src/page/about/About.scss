@@ -1,0 +1,103 @@
+@use '../../styles/utils/mixin' as mixin;
+@use '../../styles/common.scss' as common;
+
+#mainAbout {
+    padding: 0 6vw;
+
+    &_theme {
+        background-color: common.$colorThemeDarkBackGreen;
+        padding: 0 6vw;
+
+        @include mixin.responsive(1400px) {
+            padding: 0 4vw;
+        }
+
+        @include mixin.responsive(1024px) {
+            padding: 0 50px;
+        }
+
+        @include mixin.responsive(440px) {
+            padding: 0 30px;
+        }
+    }
+
+    .chageBgColorDark {
+        background-color: common.$colorThemeDarkBackGreen;
+    }
+
+    .chageBgColorbright {
+        background-color: common.$colorThemeWhite;
+    }
+}
+
+.about {
+    &_image {
+        width: 100%;
+    }
+
+    &_sectionFirst {
+        padding: 30px 0px;
+
+        &_title {
+            color: common.$colorThemeDarkBackGreen;
+            font-weight: 600;
+            line-height: 32px;
+            font-size: 24px;
+            padding: 10px 30px;
+
+            &.chageColor {
+                color: common.$colorThemeWhite;
+            }
+        }
+
+        &_text {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            padding: 0px 70px;
+
+            &.chageColor {
+                color: common.$colorThemeWhite;
+            }
+        }
+    }
+
+    &_sectionSecond {
+        padding: 30px;
+
+        &.chageColor {
+            color: common.$colorThemeWhite;
+        }
+
+        &_title {
+            color: common.$colorThemeDarkBackGreen;
+            font-weight: 600;
+            line-height: 32px;
+            font-size: 24px;
+
+            &.chageColor {
+                color: common.$colorThemeWhite;
+            }
+        }
+    }
+}
+
+.about_sectionSecond_title {
+    &_list {
+        padding: 10px 40px;
+
+        &.chageColor {
+            color: common.$colorThemeWhite;
+        }
+
+        &_item {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+
+            &.chageColor {
+                color: common.$colorThemeWhite;
+            }
+        }
+    }
+}

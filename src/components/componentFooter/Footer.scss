@@ -2,7 +2,15 @@
 @use '../../styles/utils/mixin.scss' as mixin;
 
 .container_footer {
-    margin: 30px 6vw;
+    padding: 30px 6vw;
+
+    &.chageBgColorDark {
+        background-color: common.$colorThemeDarkBackGreen;
+    }
+
+    &.chageBgColorbright {
+        background-color: common.$colorThemeWhite;
+    }
 
     &_list {
         list-style: none;
@@ -24,17 +32,27 @@
     }
 
     @include mixin.responsive(1024px) {
-        margin: 30px 70px;
+        padding: 30px 70px;
     }
 
     @include mixin.responsive(440px) {
-        margin: 30px 50px;
+        padding: 30px 50px;
     }
 }
 
 .container_footer_list_item {
     a {
-        color: common.$colorTextBlack;
+        color: inherit;
         text-decoration: none;
     }
+
+    &.chageColorDark {
+        color: common.$colorThemeWhite;
+    }
+
+    &.chageColorbright {
+        color: common.$colorThemeDarkBackGreen;
+    }
+
+
 }

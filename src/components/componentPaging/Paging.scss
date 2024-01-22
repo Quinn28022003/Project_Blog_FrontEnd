@@ -5,7 +5,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 20px 0px;
+    padding: 20px 0px;
     text-align: center;
 
     &_previous,
@@ -44,6 +44,11 @@
                 color: common.$colorTextPurple;
             }
 
+            &.notActive {
+                background-color: inherit;
+                color: inherit;
+            }
+
             &:hover {
                 background-color: common.$colorBgLightPurple;
                 color: common.$colorTextPurple;
@@ -54,6 +59,7 @@
                 background-color: transparent;
                 color: common.$colorTextGray;
                 cursor: inherit;
+                margin: 0px 10px;
             }
         }
     }
@@ -65,6 +71,6 @@
     }
 
     @include mixin.responsive(640px) {
-        margin: 50px 0px;
+        padding: 50px 0px;
     }
 }

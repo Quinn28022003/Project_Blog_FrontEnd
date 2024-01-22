@@ -1,0 +1,31 @@
+@use '../../styles/utils/mixin' as mixin;
+@use '../../styles/common.scss' as common;
+
+#mainProject {
+    padding: 0 6vw;
+
+    &_theme {
+        background-color: common.$colorThemeDarkBackGreen;
+        padding: 0 6vw;
+
+        @include mixin.responsive(1400px) {
+            padding: 0 4vw;
+        }
+
+        @include mixin.responsive(1024px) {
+            padding: 0 50px;
+        }
+
+        @include mixin.responsive(440px) {
+            padding: 0 30px;
+        }
+    }
+
+    .chageBgColorDark {
+        background-color: common.$colorThemeDarkBackGreen;
+    }
+
+    .chageBgColorbright {
+        background-color: common.$colorThemeWhite;
+    }
+}

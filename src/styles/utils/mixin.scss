@@ -1,6 +1,7 @@
-@mixin area($row-start, $row-end, $col-start, $col-end) {
+@mixin area($row-start, $row-end, $col-start, $col-end, $Display) {
     grid-row: #{$row-start} / #{$row-end};
     grid-column: #{$col-start} / #{$col-end};
+    display: $Display;
 }
 
 @mixin responsive($width) {
