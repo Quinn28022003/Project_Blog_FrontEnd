@@ -3,6 +3,7 @@
 
 .subscriber {
     text-align: center;
+    padding-top: 80px;
 
     &_titleOne {
         color: #7F56D9;
@@ -11,7 +12,9 @@
         line-height: 24px;
         padding: 20px 0px;
 
-
+        @include mixin.responsive(375px) {
+            padding: 10px 0px;
+        }
     }
 
     &_titleTwo {
@@ -33,6 +36,10 @@
         @include mixin.responsive(600px) {
             font-size: 30px;
         }
+
+        @include mixin.responsive(375px) {
+            line-height: 40px;
+        }
     }
 
     &_text {
@@ -50,6 +57,10 @@
         &.chageColorbright {
             color: common.$colorThemeDarkBackGreen;
         }
+
+        @include mixin.responsive(500px) {
+            font-size: 16px;
+        }
     }
 
     &_form {
@@ -64,6 +75,14 @@
             gap: 8px;
             align-self: stretch;
             margin-right: 20px;
+
+            @include mixin.responsive(375px) {
+                width: 100%;
+            }
+
+            @include mixin.responsive(375px) {
+                margin-right: 0px;
+            }
         }
 
         &_btn {
@@ -102,7 +121,7 @@
 
             a {
                 color: inherit;
-                font-size: 14px;
+                font-size: 16px;
                 font-weight: 400;
                 line-height: 20px;
                 text-decoration-line: underline;
@@ -116,5 +135,9 @@
                 color: common.$colorThemeDarkBackGreen;
             }
         }
+    }
+
+    @include mixin.responsive(1024px) {
+        padding-top: 0px;
     }
 }

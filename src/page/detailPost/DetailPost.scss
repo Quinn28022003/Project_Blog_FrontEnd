@@ -2,7 +2,7 @@
 @use '../../styles/common.scss' as common;
 
 .detailPost {
-    padding: 0 6vw;
+    padding: 100px 6vw 0px 6vw;
     display: flex;
 
     &.chageBgColorDark {
@@ -16,21 +16,20 @@
     &_list {
         width: 30%;
         box-shadow: 2px 3px 15px rgba($color: #000000, $alpha: .1);
-        padding: 20px;
         overflow-y: auto;
-        height: 100vh;
+        height: 95vh;
         position: sticky;
-        top: 30px;
         transition: all .5s;
         scrollbar-width: thin;
         scrollbar-color: #999999 #f5f5f5;
         scroll-behavior: smooth;
         transition: opacity 0.5s ease-in-out;
+        padding: 0px 10px 0px 10px;
+        top: 80px;
 
         &_btn-left {
             position: absolute;
             right: 0;
-            top: 0;
             background-color: white;
             font-size: 30px;
             color: rgb(107, 107, 107);
@@ -41,25 +40,83 @@
             transition: all .5s;
             border-radius: 2px;
 
+            &.chageBgColorDark {
+                box-shadow: 2px 3px 15px rgba($color: #ffffff, $alpha: .2);
+                color: rgb(164, 164, 164);
+                transition: all .5s;
+                opacity: .7;
+                background-color: transparent;
+
+                &:hover {
+                    box-shadow: 2px 3px 20px rgba($color: #ffffff, $alpha: .3);
+                    transition: all .5s;
+                    opacity: 1;
+                }
+            }
+
+            &.chageBgColorbright {
+                box-shadow: 2px 3px 15px rgba($color: #000000, $alpha: .1);
+                color: rgb(91, 89, 89);
+                transition: all .5s;
+                opacity: .7;
+
+                &:hover {
+                    box-shadow: 2px 3px 20px rgba($color: #000000, $alpha: .3);
+                    transition: all .5s;
+                    opacity: 1;
+                }
+            }
+
             @include mixin.responsive(1200px) {
                 position: sticky;
+                top: 10px;
                 float: right;
             }
         }
 
         &_btn-right {
             position: sticky;
-            left: 0;
-            top: 20px;
-            background-color: white;
+            left: -6px;
+            top: 90px;
+            background-color: transparent;
             font-size: 30px;
-            color: rgb(107, 107, 107);
             border: none;
             outline: none;
-            box-shadow: 2px 3px 15px rgba($color: #000000, $alpha: .1);
+            box-shadow: 2px 3px 15px rgba($color: #000000, $alpha: .2);
             padding: 7px;
             height: 50px;
             border-radius: 2px;
+
+            &.chageBgColorDark {
+                box-shadow: 2px 3px 15px rgba($color: #ffffff, $alpha: .2);
+                color: rgb(164, 164, 164);
+                transition: all .5s;
+                opacity: .7;
+
+                &:hover {
+                    box-shadow: 2px 3px 20px rgba($color: #ffffff, $alpha: .3);
+                    transition: all .5s;
+                    opacity: 1;
+                }
+            }
+
+            &.chageBgColorbright {
+                box-shadow: 2px 3px 15px rgba($color: #000000, $alpha: .1);
+                color: rgb(91, 89, 89);
+                transition: all .5s;
+                opacity: .7;
+
+                &:hover {
+                    box-shadow: 2px 3px 20px rgba($color: #000000, $alpha: .3);
+                    transition: all .5s;
+                    opacity: 1;
+                }
+            }
+
+            @include mixin.responsive(375px) {
+                position: fixed;
+                top: 70px;
+            }
         }
 
         &::-webkit-scrollbar {
@@ -85,17 +142,20 @@
             transition: all .5s;
         }
 
-        @include mixin.responsive(1200px) {
-            position: fixed;
-            top: 30px;
-            z-index: 10;
-            top: 0;
-            left: 0;
-            background-color: white;
+        &.chageBgColorDark {
+            background-color: common.$colorThemeDarkBackGreen;
+        }
+
+        &.chageBgColorbright {
+            background-color: common.$colorThemeWhite;
         }
 
         @include mixin.responsive(1200px) {
+            position: fixed;
+            z-index: 10;
             width: 40%;
+            top: 70px;
+            padding: 30px 10px 0px 10px;
         }
 
         @include mixin.responsive(868px) {
@@ -108,6 +168,7 @@
 
         @include mixin.responsive(550px) {
             width: 80%;
+            top: 62px;
         }
 
         @include mixin.responsive(450px) {
@@ -187,12 +248,16 @@
 
         @include mixin.responsive(1200px) {
             width: 100%;
-            background-color: white;
         }
 
         @include mixin.responsive(600px) {
+            padding: 150px 10px 10px 10px;
             margin-left: 10px;
-            padding: 10px;
+        }
+
+        @include mixin.responsive(375px) {
+            margin-left: 0px;
+            padding: 30px;
         }
     }
 
@@ -201,11 +266,9 @@
         bottom: 40px;
         z-index: 3;
         right: 40px;
-        color: rgb(91, 89, 89);
         background-color: transparent;
         border: none;
         outline: none;
-        box-shadow: 2px 3px 15px rgba($color: #000000, $alpha: .1);
         padding: 20px;
         border-radius: 50%;
         width: 70px;
@@ -216,34 +279,40 @@
         cursor: pointer;
         font-size: 40px;
         transition: all .5s;
-        opacity: .7;
 
-        &:hover {
-            box-shadow: 2px 3px 20px rgba($color: #000000, $alpha: .3);
+        &.chageColorDark {
+            box-shadow: 2px 3px 15px rgba($color: #ffffff, $alpha: .2);
+            color: rgb(164, 164, 164);
             transition: all .5s;
-            opacity: 1;
+            opacity: .7;
+
+            &:hover {
+                box-shadow: 2px 3px 20px rgba($color: #ffffff, $alpha: .3);
+                transition: all .5s;
+                opacity: 1;
+            }
+        }
+
+        &.chageColorbright {
+            box-shadow: 2px 3px 15px rgba($color: #000000, $alpha: .1);
+            color: rgb(91, 89, 89);
+            transition: all .5s;
+            opacity: .7;
+
+            &:hover {
+                box-shadow: 2px 3px 20px rgba($color: #000000, $alpha: .3);
+                transition: all .5s;
+                opacity: 1;
+            }
         }
 
         @include mixin.responsive(500px) {
             width: 50px;
             height: 50px;
             font-size: 30px;
+            bottom: 20px;
+            right: 20px;
         }
     }
 
-    @include mixin.responsive(1400px) {
-        padding: 0 4vw;
-    }
-
-    @include mixin.responsive(1024px) {
-        padding: 0 50px;
-    }
-
-    @include mixin.responsive(600px) {
-        padding: 0 20px;
-    }
-
-    @include mixin.responsive(440px) {
-        padding: 0 20px;
-    }
 }

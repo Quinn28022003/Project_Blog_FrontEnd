@@ -18,6 +18,11 @@ declare module '*.png' {
     export default pngPath;
 };
 
+declare module '*.css' {
+    const content: { [className: string]: string };
+    export default content;
+}
+
 interface IArticle {
     id: number;
     title: string;

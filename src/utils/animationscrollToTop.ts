@@ -1,5 +1,5 @@
 export const scrollToTop = () => {
-    const scrollStep = -window.scrollY / (500 / 15);
+    const scrollStep = -window.scrollY / (500 / 30);
 
     const scrollInterval = setInterval(() => {
         if (window.scrollY !== 0) {

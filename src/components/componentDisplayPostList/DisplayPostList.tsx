@@ -20,8 +20,10 @@ const DisplayPostList: React.FC<TDisplayPostList> = ({ RecentBlogPosts, AllBlogP
     const [isCheckTypeDisplayPostList, setIsCheckTypeDisplayPostList] = useState<string>((): string => {
         if (RecentBlogPosts === true) {
             return 'DisplayPostList_content';
-        } else if (AllBlogPosts === true || Newsletter === true) {
+        } else if (AllBlogPosts === true) {
             return 'DisplayPostList_content_allBlogPosts';
+        } else if (Newsletter === true) {
+            return 'DisplayPostList_content_newsletterAllBlogPosts';
         } else if (AllRecentBlogPosts === true) {
             return 'DisplayPostList_content_allRecentBlogPosts';
         } else if (ProjectPosts === true) {
@@ -93,7 +95,7 @@ const DisplayPostList: React.FC<TDisplayPostList> = ({ RecentBlogPosts, AllBlogP
                         dataPosts.map((element: any, index: any) => {
                             if (index < 3) {
                                 return (
-                                    <PostItem key={element.idPost} AllBlogPosts element={element} itemIndex={index + 1} />
+                                    <PostItem key={element.idPost} Newsletter element={element} itemIndex={index + 1} />
                                 )
                             }
                         }) : null

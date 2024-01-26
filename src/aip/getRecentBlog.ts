@@ -1,4 +1,4 @@
-import instance from "./configAxios";
+import instance from "./axios/configAxios";
 
 const getRecentBlog = async (): Promise<any> => {
     try {

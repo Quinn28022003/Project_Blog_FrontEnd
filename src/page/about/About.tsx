@@ -1,5 +1,4 @@
 import Title from '../../components/componentTitle/Title';
-import imageAuthor from '../../assets/image/author.png';
 import './About.scss';
 import { TContextApp, contextApp } from '../../App';
 import { useContext } from 'react';
@@ -12,7 +11,7 @@ const About = () => {
         <div id={`mainAbout${isCheckTheme === true ? '_theme' : ''}`}>
             <div className='about'>
                 <Title title='Join Doe' />
-                <img src={imageAuthor} alt="" className='about_image' />
+                <img src="/assets/image/author.png" alt="" className='about_image' />
                 <div className='about_sectionFirst'>
                     <h3 className={`about_sectionFirst_title ${isCheckTheme === true ? 'chageColor' : ''}`}>
                         About Me

@@ -1,7 +1,7 @@
 import DisplayPostList from '../../components/componentDisplayPostList/DisplayPostList';
 import Title from '../../components/componentTitle/Title';
 import './Project.scss';
-import getProject from '../../axios/getProject';
+import getProject from '../../aip/getProject';
 import { useContext, useEffect, useState } from 'react';
 import { TContextApp, contextApp } from '../../App';
 

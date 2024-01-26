@@ -2,7 +2,7 @@
 @use '../../styles/common.scss' as common;
 
 .container_title {
-    padding: 30px 0px;
+    padding: 170px 0px 30px 0px;
 
     &.chageDark {
         color: common.$colorThemeWhite;
@@ -40,5 +40,17 @@
             line-height: 14vh;
             height: 14vh;
         }
+    }
+
+    @include mixin.responsive(1024px) {
+        padding: 120px 0px 0px 0px;
+    }
+
+    @include mixin.responsive(550px) {
+        padding: 80px 0px 0px 0px;
+    }
+
+    @include mixin.responsive(375px) {
+        padding: 80px 0px 0px 0px;
     }
 }

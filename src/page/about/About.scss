@@ -33,6 +33,7 @@
 .about {
     &_image {
         width: 100%;
+        margin-top: 40px;
     }
 
     &_sectionFirst {
@@ -48,6 +49,7 @@
             &.chageColor {
                 color: common.$colorThemeWhite;
             }
+
         }
 
         &_text {
@@ -58,6 +60,11 @@
 
             &.chageColor {
                 color: common.$colorThemeWhite;
+            }
+
+            @include mixin.responsive(375px) {
+                padding-left: 40px;
+                padding-right: 30px;
             }
         }
     }
@@ -98,6 +105,11 @@
             &.chageColor {
                 color: common.$colorThemeWhite;
             }
+        }
+
+        @include mixin.responsive(375px) {
+            padding: 10px 10px 10px 40px;
+
         }
     }
 }

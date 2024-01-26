@@ -3,10 +3,12 @@
 
 .DisplayPostList {
     padding: 30px 0px;
+    min-height: 50vh;
 
     &_title {
         color: common.$colorTextBlack;
         margin: 30px 0px;
+        font-size: 22px;
 
         &.chageColorDark {
             color: common.$colorThemeWhite;
@@ -15,23 +17,31 @@
         &.chageColorbright {
             color: common.$colorThemeDarkBackGreen;
         }
+
+        @include mixin.responsive(550px) {
+            margin: 0px 0px 30px 0px;
+            font-size: 20px;
+        }
+
+        @include mixin.responsive(375px) {
+            margin: 0px 0px 30px 0px;
+            font-size: 18px;
+        }
     }
 
     &_content {
         display: grid;
-        gap: 40px;
         width: 100%;
+        gap: 40px;
         height: auto;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(3, 1fr);
 
+        &_newsletterAllBlogPosts,
         &_allBlogPosts {
             display: flex;
-            gap: 20px;
-            justify-content: center;
             flex-wrap: wrap;
-            grid-template-columns: none;
-            grid-template-rows: none;
+            justify-content: flex-start;
         }
 
         &_projectPosts {
@@ -65,5 +75,9 @@
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: revert;
         }
+    }
+
+    @include mixin.responsive(1024px) {
+        padding: 50px 0px 0px 0px;
     }
 }

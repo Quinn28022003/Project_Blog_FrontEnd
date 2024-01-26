@@ -2,22 +2,12 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import DisplayPostList from '../../components/componentDisplayPostList/DisplayPostList';
 import './DetailPost.scss';
 import { TContextApp, contextApp } from '../../App';
-import getDetailPost from '../../axios/getDetailPost';
+import getDetailPost from '../../aip/getDetailPost';
 import { useParams } from 'react-router-dom';
-import imageDetailPost1 from '../../assets/image/Image1.png';
-import imageDetailPost2 from '../../assets/image/Image2.png';
-import imageDetailPost3 from '../../assets/image/Image3.png';
-import imageDetailPost4 from '../../assets/image/Image4.png';
-import imageDetailPost5 from '../../assets/image/Image5.png';
-import imageDetailPost6 from '../../assets/image/Image6.png';
-import imageDetailPost7 from '../../assets/image/Image7.png';
-import imageDetailPost8 from '../../assets/image/Image8.png';
-import imageDetailPost9 from '../../assets/image/Image9.png';
-import imageDetailPost10 from '../../assets/image/Image10.png';
 import Subscriber from '../../components/componentSubscriber/Subscriber';
-import getTopicPosts from '../../axios/getTopicPosts';
+import getTopicPosts from '../../aip/getTopicPosts';
 import Button from '../../components/componentButton/Button';
-import { TColorBackgroud, TColorText } from '../../assets/ts/Color';
+import { TColorBackgroud, TColorText } from '../../constant/Color';
 import { scrollToTop } from '../../utils/animationscrollToTop';
 
 const initGetTopicPosts = async (idPost: number): Promise<any> => {
@@ -48,17 +38,17 @@ const DetailPost = () => {
         };
     });
     const { idPost } = useParams();
-    const [loop, setloop] = useState<any[]>([
-        imageDetailPost1,
-        imageDetailPost2,
-        imageDetailPost3,
-        imageDetailPost4,
-        imageDetailPost5,
-        imageDetailPost6,
-        imageDetailPost7,
-        imageDetailPost8,
-        imageDetailPost9,
-        imageDetailPost10
+    const [loop, setloop] = useState<string[]>([
+        '/assets/image/Image1.png',
+        '/assets/image/Image2.png',
+        '/assets/image/Image3.png',
+        '/assets/image/Image4.png',
+        '/assets/image/Image5.png',
+        '/assets/image/Image6.png',
+        '/assets/image/Image7.png',
+        '/assets/image/Image8.png',
+        '/assets/image/Image9.png',
+        '/assets/image/Image10.png'
     ]);
 
     const handleLinkClick = () => {
@@ -110,22 +100,31 @@ const DetailPost = () => {
         };
     }, [windowWidth]);
 
+    useEffect(() => {
+        const htmlElement: HTMLElement = document.documentElement;
+        if (showListRecentBlogPost === true && windowWidth < 1200) {
+            htmlElement.style.overflow = 'hidden';
+        } else {
+            htmlElement.style.overflow = 'auto';
+        };
+    }, [showListRecentBlogPost]);
+
     const handleOnclickChageShowListRecentBlogPosts = (): void => {
         setShowListRecentBlogPost(!showListRecentBlogPost)
     };
 
     return (
         <div className={`detailPost ${isCheckTheme === true ? 'chageBgColorDark ' : 'chageBgColorbright'}`}>
-            <div className={showListRecentBlogPost === true ? 'detailPost_list show' : 'detailPost_list hiddent'}>
+            <div className={`${isCheckTheme === true ? 'chageBgColorDark ' : 'chageBgColorbright'} ${showListRecentBlogPost === true ? 'detailPost_list show' : 'detailPost_list hiddent'}`}>
                 {
                     windowWidth < 1200 ?
-                        <button className='detailPost_list_btn-left' onClick={handleOnclickChageShowListRecentBlogPosts} style={{ display: `${showListRecentBlogPost === true ? 'block' : 'none'}` }}>
+                        <button className={`detailPost_list_btn-left ${isCheckTheme === true ? 'chageBgColorDark ' : 'chageBgColorbright'}`} onClick={handleOnclickChageShowListRecentBlogPosts} style={{ display: `${showListRecentBlogPost === true ? 'block' : 'none'}` }}>
                             <i className="fa-solid fa-arrow-left"></i>
                         </button> : null
                 }
                 <DisplayPostList title='Recent blog posts' AllRecentBlogPosts DataPosts={dataContextApp.dataGetRecentBlog} />
             </div>
-            <button className='detailPost_list_btn-right ' onClick={handleOnclickChageShowListRecentBlogPosts} style={{ display: `${showListRecentBlogPost === false ? 'block' : 'none'}` }}>
+            <button className={`detailPost_list_btn-right ${isCheckTheme === true ? 'chageBgColorDark ' : 'chageBgColorbright'}`} onClick={handleOnclickChageShowListRecentBlogPosts} style={{ display: `${showListRecentBlogPost === false ? 'block' : 'none'}` }}>
                 <i className="fa-solid fa-arrow-right"></i>
             </button>
             <div className='detailPost_content'>
@@ -181,7 +180,7 @@ const DetailPost = () => {
                             )
                         }) : null
                 }
-                <div style={{ display: 'flex', margin: '30px 0px' }}>
+                <div style={{ display: 'flex', margin: '30px 0px', flexWrap: 'wrap' }}>
                     {
 
                         dataTopicPost && dataTopicPost.length > 0 ?
@@ -199,7 +198,7 @@ const DetailPost = () => {
             </div>
             {
                 showButton && showButton === true ?
-                    <button className='detailPost_btnControllerTop' onClick={handleLinkClick}>
+                    <button className={`detailPost_btnControllerTop ${isCheckTheme === true ? 'chageColorDark ' : 'chageColorbright'}`} onClick={handleLinkClick}>
                         <i className="fa-solid fa-arrow-up"></i>
                     </button> : null
             }

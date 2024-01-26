@@ -23,6 +23,10 @@
             @include mixin.responsive(640px) {
                 margin-bottom: 20px;
             }
+
+            @include mixin.responsive(550px) {
+                margin: 0px 10px 20px 10px;
+            }
         }
 
         @include mixin.responsive(640px) {
@@ -32,11 +36,12 @@
     }
 
     @include mixin.responsive(1024px) {
-        padding: 30px 70px;
+        padding: 30px 50px;
     }
 
-    @include mixin.responsive(440px) {
-        padding: 30px 50px;
+
+    @include mixin.responsive(550px) {
+        padding: 20px 30px;
     }
 }
 
@@ -53,6 +58,4 @@
     &.chageColorbright {
         color: common.$colorThemeDarkBackGreen;
     }
-
-
 }

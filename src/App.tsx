@@ -5,7 +5,7 @@ import Project from './page/project/Project';
 import NotFound from './page/NotFound/NotFound';
 import Header from './components/componentHeader/Header';
 import Footer from './components/componentFooter/Footer';
-import getRecentBlog from './axios/getRecentBlog';
+import getRecentBlog from './aip/getRecentBlog';
 import About from './page/about/About';
 import Newsletter from './page/newsletter/Newsletter';
 import DetailPost from './page/detailPost/DetailPost';
@@ -38,7 +38,6 @@ export const useGetData = (): TContextApp => {
 
   const handleOnclickchangeIsCheckTheme = (): void => {
     setIsCheckTheme((prevIsCheckTheme) => !prevIsCheckTheme);
-    console.log(isCheckTheme);
   };
 
   const handleOnlickUpdatePageAndPostsPerPage = (page: number, postsPerPage: number): void => {

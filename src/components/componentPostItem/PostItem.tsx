@@ -2,8 +2,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import './PostItem.scss';
 import imgArrow from '../../assets/image/arrow-up-right.svg';
 import Button from '../componentButton/Button';
-import { TColorBackgroud, TColorText } from '../../assets/ts/Color';
-import getTopicPosts from '../../axios/getTopicPosts';
+import { TColorBackgroud, TColorText } from '../../constant/Color';
+import getTopicPosts from '../../aip/getTopicPosts';
 import { Link, useNavigate } from 'react-router-dom';
 import { scrollToTop } from '../../utils/animationscrollToTop';
 import { TContextApp, contextApp } from '../../App';
@@ -13,6 +13,7 @@ type TPostItemProps = {
     AllBlogPosts?: boolean;
     AllRecentBlogPosts?: boolean;
     ProjectPosts?: boolean;
+    Newsletter?: boolean;
     element: any;
     itemIndex: number;
 };
@@ -27,7 +28,7 @@ const initGetTopicPosts = async (idPost: number): Promise<any> => {
     };
 };
 
-const PostItem: React.FC<TPostItemProps> = ({ RecentBlogPosts, AllBlogPosts, AllRecentBlogPosts, ProjectPosts, element, itemIndex }: TPostItemProps) => {
+const PostItem: React.FC<TPostItemProps> = ({ RecentBlogPosts, AllBlogPosts, AllRecentBlogPosts, ProjectPosts, Newsletter, element, itemIndex }: TPostItemProps) => {
     const [dataTopicPost, setDataTopicPost] = useState<string[]>([]);
     const [containerColorBg, setContainerColorbg] = useState<string[]>(Object.values(TColorBackgroud));
     const [containerColorText, setContainerColorText] = useState<string[]>(Object.values(TColorText));
@@ -81,6 +82,8 @@ const PostItem: React.FC<TPostItemProps> = ({ RecentBlogPosts, AllBlogPosts, All
                 `post_item-projectPostItem${itemIndex}`,
                 `post_item-projectPostItem${itemIndex}`
             ]);
+        } else if (Newsletter === true) {
+            return 'post_item-newsletterAllBlogPostItem';
         } else {
             return '';
         };
@@ -106,6 +109,8 @@ const PostItem: React.FC<TPostItemProps> = ({ RecentBlogPosts, AllBlogPosts, All
                 `post_item_image-projectPostItem${itemIndex}`,
                 `post_item_image-projectPostItem${itemIndex}`
             ]);
+        } else if (Newsletter === true) {
+            return 'post_item_image-newsletterAllBlogPostItem';
         } else {
             return '';
         };
@@ -131,6 +136,8 @@ const PostItem: React.FC<TPostItemProps> = ({ RecentBlogPosts, AllBlogPosts, All
                 `post_item_content-projectPostItem${itemIndex}`,
                 `post_item_content-projectPostItem${itemIndex}`
             ]);
+        } else if (Newsletter === true) {
+            return 'post_item_content-newsletterAllBlogPostItem';
         } else {
             return '';
         };
@@ -156,7 +163,10 @@ const PostItem: React.FC<TPostItemProps> = ({ RecentBlogPosts, AllBlogPosts, All
                     {element.authorName} • {element.FormattedDate}
                 </span>
                 <Link to={`/detailPosts/${element.idPost}`} style={{ textDecoration: 'none', color: 'inherit', display: 'inherit' }} onClick={handleLinkClick}>
-                    <h3 className={`post_item_content_title ${isCheckTheme === false ? 'chageColorDark' : 'chageColorbright'}`}>{element.title} </h3><img src={imgArrow} alt="Arrow" className='post_item_content_imgArrow' />
+                    <div className='post_item_content_containerTitle'>
+                        <h3 className={`post_item_content_containerTitle_title ${isCheckTheme === false ? 'chageColorDark' : 'chageColorbright'}`}>{element.title}</h3>
+                        <img src="/assets/image/arrow-up-right.svg" alt="Arrow" className='post_item_content_containerTitle_imgArrow' />
+                    </div>
                 </Link>
                 <p className={`post_item_content_description ${isCheckTheme === false ? 'chageColorDark' : 'chageColorbright'}`}>{element.decscription}</p>
                 <div className='post_item_content_topic'>

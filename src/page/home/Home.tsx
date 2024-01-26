@@ -4,7 +4,7 @@ import Title from '../../components/componentTitle/Title';
 import DisplayPostList from '../../components/componentDisplayPostList/DisplayPostList';
 import Paging from '../../components/componentPaging/Paging';
 import { TContextApp, contextApp } from '../../App';
-import getBlogPosts from '../../axios/getBlogPosts';
+import getBlogPosts from '../../aip/getBlogPosts';
 
 const Home = () => {
     const dataContextApp: TContextApp = useContext(contextApp);
@@ -26,7 +26,6 @@ const Home = () => {
     return (
         <div id={`main${isCheckTheme === true ? '_theme' : ''}`} >
             <div className={`${isCheckTheme === true ? 'chageBgColorDark' : 'chageBgColorbright'} `}>
-
                 <Title title='THE BLOG' />
                 <DisplayPostList title='Recent blog posts' RecentBlogPosts DataPosts={dataContextApp.dataGetRecentBlog} />
                 <DisplayPostList title='All blog posts' AllBlogPosts DataPosts={dataBlogPost} />

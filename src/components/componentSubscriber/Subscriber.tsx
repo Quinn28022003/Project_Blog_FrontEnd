@@ -1,7 +1,7 @@
 import { ChangeEvent, useContext, useState } from 'react';
 import { TContextApp, contextApp } from '../../App';
 import './Subscriber.scss';
-import postAddEmailUser from '../../axios/postAddEmailUser';
+import postAddEmailUser from '../../aip/postAddEmailUser';
 import { ToastContainer, toast } from 'react-toastify';
 
 const Subscriber = () => {

@@ -1,4 +1,4 @@
-import instance from "./configAxios";
+import instance from "./axios/configAxios";
 
 const getBlogPosts = async (page: number, postsPerPage: number): Promise<any> => {
     try {

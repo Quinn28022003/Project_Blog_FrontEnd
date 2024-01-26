@@ -11,26 +11,22 @@
         &-recentPostItem2,
         &-recentPostItem3,
         &-recentPostItem4,
-        &-projectPostItem2,
-        &-projectPostItem3,
-        &-projectPostItem5,
-        &-projectPostItem6 {
-            height: 300px;
-        }
-
-        &-recentPostItem1,
-        &-recentPostItem2,
-        &-recentPostItem3,
-        &-recentPostItem4,
+        &-allBlogPostItem,
         &-projectPostItem1,
         &-projectPostItem2,
         &-projectPostItem3,
         &-projectPostItem4,
         &-projectPostItem5,
         &-projectPostItem6,
-        &-AllRecentBlogPosts {
+        &-AllRecentBlogPosts,
+        &-newsletterAllBlogPostItem {
             object-fit: cover;
             box-shadow: 2px 3px 15px rgba($color: #000000, $alpha: .1);
+            height: 280px;
+
+            @include mixin.responsive(375px) {
+                height: 130px;
+            }
         }
 
         &-recentPostItem1,
@@ -70,26 +66,13 @@
             }
         }
 
-        &-projectPostItem1 {
-            height: 400px;
-
-            @include mixin.responsive(1280px) {
-                height: 300px;
-            }
-        }
-
+        // &-projectPostItem1 {}
         // &-projectPostItem2 {}
-
         // &-projectPostItem3 {}
-
-        &-projectPostItem4 {
-            height: 400px;
-        }
-
+        // &-projectPostItem4 {}
         // &-projectPostItem5 {}
-
         // &-projectPostItem6 {}
-
+        &-newsletterAllBlogPostItem,
         &-AllRecentBlogPosts {
             width: 100%;
         }
@@ -98,51 +81,92 @@
     &_content {
 
         &_authorAndDate {
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 600;
             line-height: 20px;
             color: common.$colorTextPurple;
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
-            max-width: 85%;
             display: block;
+
+            @include mixin.responsive(550px) {
+                max-height: 64px;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                text-overflow: ellipsis;
+                white-space: normal;
+            }
         }
 
-        &_title {
-            color: common.$colorTextBlack;
-            font-size: 1.2rem;
-            font-weight: 600;
-            line-height: 32px;
-            margin: 12px 0px;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            display: inline-block;
-            max-width: 80%;
+        &_containerTitle {
+            width: 100%;
+            display: flex;
 
-            &.chageColorDark {
-                color: common.$colorThemeDarkBackGreen;
-            }
-
-            &.chageColorbright {
-                color: common.$colorThemeWhite;
-            }
-
-            &:hover {
+            &_title {
+                color: common.$colorTextBlack;
+                font-size: 1.2rem;
+                font-weight: 600;
+                line-height: 32px;
+                margin: 12px 0px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                display: inline-block;
                 text-decoration: underline;
+                width: 92%;
+
+                &.chageColorDark {
+                    color: common.$colorThemeDarkBackGreen;
+                }
+
+                &.chageColorbright {
+                    color: common.$colorThemeWhite;
+                }
+
+                &:hover {
+                    text-decoration: underline;
+                }
+
+                @include mixin.responsive(686px) {
+                    font-size: 22px;
+                    max-height: 128px;
+                    overflow: hidden;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 4;
+                    -webkit-box-orient: vertical;
+                    text-overflow: ellipsis;
+                    white-space: normal;
+                }
+
+                @include mixin.responsive(550px) {
+                    width: 86%;
+                    font-size: 20px;
+                }
+
+                @include mixin.responsive(375px) {
+                    font-size: 16px;
+                }
             }
 
-            @include mixin.responsive(686px) {
-                width: 100%;
-            }
-        }
+            &_imgArrow {
 
-        &_imgArrow {
-            margin: 12px 0px;
-            width: 24px;
-            height: 29px;
-            margin-left: 20px;
+                @include mixin.responsive(1024px) {
+                    flex-shrink: 0;
+                    align-self: flex-start;
+                    width: 50px;
+                    height: 50px;
+                    padding-top: 12px;
+                }
+
+                @include mixin.responsive(550px) {
+                    padding-top: 16px;
+                    width: 40px;
+                    height: 40px;
+                }
+            }
         }
 
         &_description {
@@ -156,7 +180,7 @@
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
-            max-width: 85%;
+            min-height: 72px;
             max-height: 72px;
 
             &.chageColorDark {
@@ -170,12 +194,15 @@
             @include mixin.responsive(686px) {
                 width: 100%;
             }
+
+            @include mixin.responsive(550px) {
+                font-size: 14px;
+            }
         }
 
         &_topic {
             overflow: auto;
             white-space: nowrap;
-            max-width: 85%;
             padding: 10px 0px;
             scrollbar-width: thin;
             scrollbar-color: #333 #f5f5f5;
@@ -207,7 +234,8 @@
         &-projectPostItem4,
         &-projectPostItem5,
         &-projectPostItem6,
-        &-AllRecentBlogPosts {
+        &-AllRecentBlogPosts,
+        &-newsletterAllBlogPostItem {
             width: 100%;
         }
 
@@ -222,8 +250,14 @@
         &-projectPostItem4,
         &-projectPostItem5,
         &-projectPostItem6,
-        &-AllRecentBlogPosts {
-            padding: 30px;
+        &-AllRecentBlogPosts,
+        &-newsletterAllBlogPostItem {
+            padding: 30px 20px;
+            box-shadow: 2px 3px 15px rgba($color: #000000, $alpha: .1);
+            margin-top: -10px;
+            // @include mixin.responsive(686px) {
+            //     padding: 20px;
+            // }
         }
 
         // &-recentPostItem1 {}
@@ -234,7 +268,6 @@
             @include mixin.responsive(686px) {
                 width: 100%;
             }
-
         }
 
         &-recentPostItem3 {
@@ -253,7 +286,7 @@
             }
         }
 
-        &-allBlogPostItem {}
+        // &-allBlogPostItem {}
 
         // &-projectPostItem1 {
 
@@ -270,21 +303,6 @@
         // &-projectPostItem6 {}
 
         // &-AllRecentBlogPosts {}
-    }
-
-    &-recentPostItem1,
-    &-recentPostItem2,
-    &-recentPostItem3,
-    &-recentPostItem4,
-    &-allBlogPostItem,
-    &-projectPostItem1,
-    &-projectPostItem2,
-    &-projectPostItem3,
-    &-projectPostItem4,
-    &-projectPostItem5,
-    &-projectPostItem6,
-    &-AllRecentBlogPosts {
-        box-shadow: 2px 3px 15px rgba($color: #000000, $alpha: .1);
     }
 
     &-recentPostItem1 {
@@ -337,15 +355,48 @@
     }
 
     &-allBlogPostItem {
-        width: 30%;
-        display: block;
+        width: calc(100%/3);
+        display: inline-block;
+        padding: 10px 20px 10px 0px;
+
+        &:nth-child(3) {
+            padding-right: 0px;
+        }
+
+        &:last-child {
+            padding-right: 0px;
+        }
+
+
 
         @include mixin.responsive(1024px) {
-            width: 48%;
+            width: 50%;
+            padding: 10px 20px 10px 0px;
+
+            &:nth-child(2) {
+                padding-right: 0px;
+            }
+
+            &:nth-child(3) {
+                padding-right: 20px;
+            }
+
+            &:nth-child(4) {
+                padding-right: 0px;
+            }
+
+            &:last-child {
+                padding-right: 0px;
+            }
         }
 
         @include mixin.responsive(686px) {
+            padding: 10px 0px;
             width: 100%;
+
+            &:nth-child(3) {
+                padding-right: 0;
+            }
         }
     }
 
@@ -357,7 +408,7 @@
     &-projectPostItem2 {
         @include mixin.area(2, 3, 1, 2, block);
 
-        @include mixin.responsive(950px) {
+        @include mixin.responsive(1024px) {
             @include mixin.area(2, 3, 1, 3, block);
         }
     }
@@ -365,7 +416,7 @@
     &-projectPostItem3 {
         @include mixin.area(2, 3, 2, 3, block);
 
-        @include mixin.responsive(950px) {
+        @include mixin.responsive(1024px) {
             @include mixin.area(3, 4, 1, 3, block);
         }
     }
@@ -373,7 +424,7 @@
     &-projectPostItem4 {
         @include mixin.area(3, 4, 1, 3, block);
 
-        @include mixin.responsive(868px) {
+        @include mixin.responsive(1024px) {
             @include mixin.area(4, 5, 1, 3, block);
         }
     }
@@ -381,7 +432,7 @@
     &-projectPostItem5 {
         @include mixin.area(4, 5, 1, 2, block);
 
-        @include mixin.responsive(950px) {
+        @include mixin.responsive(1024px) {
             @include mixin.area(5, 6, 1, 3, block);
         }
     }
@@ -389,12 +440,59 @@
     &-projectPostItem6 {
         @include mixin.area(4, 5, 2, 3, block);
 
-        @include mixin.responsive(950px) {
+        @include mixin.responsive(1024px) {
             @include mixin.area(6, 7, 1, 3, block);
+        }
+    }
+
+    &-newsletterAllBlogPostItem {
+        width: calc(100%/3);
+        display: inline-block;
+        padding: 10px 20px 10px 0px;
+
+        &:nth-child(3) {
+            padding-right: 0px;
+        }
+
+        &:last-child {
+            padding-right: 0px;
+        }
+
+
+
+        @include mixin.responsive(1024px) {
+            width: 50%;
+            padding: 10px 20px 10px 0px;
+
+            &:nth-child(2) {
+                padding-right: 0px;
+            }
+
+            &:nth-child(3) {
+                padding-right: 20px;
+            }
+
+            &:nth-child(4) {
+                padding-right: 0px;
+            }
+        }
+
+        @include mixin.responsive(686px) {
+            padding: 10px 0px;
+            width: 100%;
+
+            &:nth-child(3) {
+                padding-right: 0;
+            }
         }
     }
 
     &-AllRecentBlogPosts {
         width: 100%;
+        padding: 10px 0px;
+
+        &:last-child {
+            padding-bottom: 20px;
+        }
     }
 }

@@ -2,7 +2,7 @@
 @use '../../styles/common.scss' as common;
 
 .newsletter {
-    padding: 0 6vw;
+    padding: 0px 6vw;
 
     &.chageBgColorDark {
         background-color: common.$colorThemeDarkBackGreen;
@@ -17,10 +17,10 @@
     }
 
     @include mixin.responsive(1024px) {
-        padding: 0 50px;
+        padding: 108px 50px 0px 50px;
     }
 
-    @include mixin.responsive(440px) {
-        padding: 0 30px;
+    @include mixin.responsive(375px) {
+        padding: 0px 30px;
     }
 }

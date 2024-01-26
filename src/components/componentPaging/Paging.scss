@@ -70,7 +70,11 @@
         }
     }
 
-    @include mixin.responsive(640px) {
-        padding: 50px 0px;
+    @include mixin.responsive(1024px) {
+        padding: 30px 0px;
+    }
+
+    @include mixin.responsive(600px) {
+        padding: 10px 0px;
     }
 }
